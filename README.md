@@ -19,7 +19,7 @@ Libraries: express, fs, path
 
 User Structure (request format)
 
-```
+```JSON
 {
   "user": {
     "userId": "u123",
@@ -112,7 +112,7 @@ npm test
 
 ---
 
-# 6. AI Usage Note
+## 6. AI Usage Note
 
 AI tools (ChatGPT) were used as a helper for the following:
 
@@ -127,4 +127,66 @@ Prompts used:
 * "Explain how sorting works when multiple conditions are applied"
 
 ---
+
+## API Testing Guide
+ 1. Create a Coupon
+
+POST Request
+URL:https://coupon-managment-system-yuio.onrender.com/create-coupon
+```
+
+Body Format:
+
+```json
+{
+  "code": "TEST100",
+  "description": "Flat 100 off",
+  "discountType": "FLAT",
+  "discountValue": 100,
+  "maxDiscountAmount": 100,
+  "startDate": "2025-01-01",
+  "endDate": "2025-12-31",
+  "usageLimitPerUser": 2,
+  "eligibility": {
+    "allowedUserTiers": ["REGULAR", "GOLD"],
+    "minLifetimeSpend": 0,
+    "minOrdersPlaced": 0,
+    "firstOrderOnly": false,
+    "allowedCountries": ["IN"],
+    "minCartValue": 0,
+    "applicableCategories": [],
+    "excludedCategories": [],
+    "minItemsCount": 0
+  }
+}
+```
+
+---
+
+### 2. Get the Best Coupon
+
+**PUT Request**
+**URL:https://coupon-managment-system-yuio.onrender.com/return-coupon
+`
+
+**Body Format:**
+
+```json
+{
+  "user": {
+    "userId": "u123",
+    "userTier": "NEW",
+    "country": "IN",
+    "lifetimeSpend": 1200,
+    "ordersPlaced": 2
+  },
+  "cart": {
+    "items": [
+      { "productId": "p1", "category": "electronics", "unitPrice": 1500, "quantity": 1 },
+      { "productId": "p2", "category": "fashion", "unitPrice": 500, "quantity": 2 }
+    ]
+  }
+}
+
+```
 
