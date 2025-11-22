@@ -117,6 +117,7 @@ function ModifiedCouponArray(cart, eligibleCouponsArray){
 
     return modifiedArray;
 }
+
 route.get('/get-all-coupon',(req,res)=>{
      const textFromFile = readJsonFile();
      if(!Array.isArray(textFromFile)){
