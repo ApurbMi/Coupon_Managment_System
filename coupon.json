@@ -1,0 +1,319 @@
+[
+  {
+    "code": "WELCOME100",
+    "description": "Flat 100 off for new users",
+    "discountType": "FLAT",
+    "discountValue": 100,
+    "maxDiscountAmount": 100,
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "usageLimitPerUser": 10,
+    "eligibility": {
+      "allowedUserTiers": [
+        "NEW"
+      ],
+      "minLifetimeSpend": 0,
+      "minOrdersPlaced": 0,
+      "firstOrderOnly": true,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 500,
+      "applicableCategories": [
+        "fashion",
+        "electronics"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "REGULAR50",
+    "description": "Flat 50 off for regular tier",
+    "discountType": "FLAT",
+    "discountValue": 50,
+    "maxDiscountAmount": 50,
+    "startDate": "2025-01-10",
+    "endDate": "2025-12-01",
+    "usageLimitPerUser": 3,
+    "eligibility": {
+      "allowedUserTiers": [
+        "REGULAR"
+      ],
+      "minLifetimeSpend": 1000,
+      "minOrdersPlaced": 2,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN",
+        "US"
+      ],
+      "minCartValue": 300,
+      "applicableCategories": [
+        "fashion"
+      ],
+      "excludedCategories": [
+        "grocery"
+      ],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "GOLD10",
+    "description": "10% off for gold users",
+    "discountType": "PERCENT",
+    "discountValue": 10,
+    "maxDiscountAmount": 200,
+    "startDate": "2025-02-01",
+    "endDate": "2025-09-30",
+    "usageLimitPerUser": 5,
+    "eligibility": {
+      "allowedUserTiers": [
+        "GOLD"
+      ],
+      "minLifetimeSpend": 5000,
+      "minOrdersPlaced": 5,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 1000,
+      "applicableCategories": [
+        "electronics"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "SAVE15",
+    "description": "15% off on any purchase",
+    "discountType": "PERCENT",
+    "discountValue": 15,
+    "maxDiscountAmount": 150,
+    "startDate": "2025-01-15",
+    "endDate": "2025-10-10",
+    "usageLimitPerUser": 2,
+    "eligibility": {
+      "allowedUserTiers": [
+        "NEW",
+        "REGULAR",
+        "GOLD"
+      ],
+      "minLifetimeSpend": 0,
+      "minOrdersPlaced": 0,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 700,
+      "applicableCategories": [
+        "fashion",
+        "home"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 2
+    }
+  },
+  {
+    "code": "ELEC5",
+    "description": "5% off on electronics",
+    "discountType": "PERCENT",
+    "discountValue": 5,
+    "maxDiscountAmount": 300,
+    "startDate": "2025-03-01",
+    "endDate": "2025-07-31",
+    "usageLimitPerUser": 5,
+    "eligibility": {
+      "allowedUserTiers": [
+        "REGULAR",
+        "GOLD"
+      ],
+      "minLifetimeSpend": 2000,
+      "minOrdersPlaced": 3,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN",
+        "UK"
+      ],
+      "minCartValue": 1500,
+      "applicableCategories": [
+        "electronics"
+      ],
+      "excludedCategories": [
+        "grocery"
+      ],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "FASHION20",
+    "description": "20% off fashion",
+    "discountType": "PERCENT",
+    "discountValue": 20,
+    "maxDiscountAmount": 250,
+    "startDate": "2025-04-01",
+    "endDate": "2025-11-20",
+    "usageLimitPerUser": 20,
+    "eligibility": {
+      "allowedUserTiers": [
+        "NEW",
+        "REGULAR"
+      ],
+      "minLifetimeSpend": 500,
+      "minOrdersPlaced": 1,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 800,
+      "applicableCategories": [
+        "fashion"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "BIGSAVE200",
+    "description": "Flat ₹200 off above 2000",
+    "discountType": "FLAT",
+    "discountValue": 200,
+    "maxDiscountAmount": 200,
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "usageLimitPerUser": 4,
+    "eligibility": {
+      "allowedUserTiers": [
+        "REGULAR",
+        "GOLD"
+      ],
+      "minLifetimeSpend": 3000,
+      "minOrdersPlaced": 2,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 2000,
+      "applicableCategories": [
+        "electronics",
+        "fashion"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "FIRST50",
+    "description": "50% off for first order",
+    "discountType": "PERCENT",
+    "discountValue": 50,
+    "maxDiscountAmount": 300,
+    "startDate": "2025-01-01",
+    "endDate": "2025-08-01",
+    "usageLimitPerUser": 1,
+    "eligibility": {
+      "allowedUserTiers": [
+        "NEW"
+      ],
+      "minLifetimeSpend": 0,
+      "minOrdersPlaced": 0,
+      "firstOrderOnly": true,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 300,
+      "applicableCategories": [
+        "electronics",
+        "fashion"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "HOME40",
+    "description": "40% off home category",
+    "discountType": "PERCENT",
+    "discountValue": 40,
+    "maxDiscountAmount": 500,
+    "startDate": "2025-02-01",
+    "endDate": "2025-12-25",
+    "usageLimitPerUser": 3,
+    "eligibility": {
+      "allowedUserTiers": [
+        "REGULAR",
+        "GOLD"
+      ],
+      "minLifetimeSpend": 1000,
+      "minOrdersPlaced": 1,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN",
+        "US"
+      ],
+      "minCartValue": 1000,
+      "applicableCategories": [
+        "home"
+      ],
+      "excludedCategories": [
+        "fashion"
+      ],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "ANY5",
+    "description": "Flat 5 off any cart",
+    "discountType": "FLAT",
+    "discountValue": 5,
+    "maxDiscountAmount": 5,
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "usageLimitPerUser": 10,
+    "eligibility": {
+      "allowedUserTiers": [
+        "NEW",
+        "REGULAR",
+        "GOLD"
+      ],
+      "minLifetimeSpend": 0,
+      "minOrdersPlaced": 0,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 1,
+      "applicableCategories": [],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  },
+  {
+    "code": "",
+    "description": "Flat ₹200 off above 2000",
+    "discountType": "FIXED",
+    "discountValue": 200,
+    "maxDiscountAmount": 200,
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "usageLimitPerUser": 4,
+    "eligibility": {
+      "allowedUserTiers": [
+        "INVALID_TIER"
+      ],
+      "minLifetimeSpend": -100,
+      "minOrdersPlaced": 2,
+      "firstOrderOnly": false,
+      "allowedCountries": [
+        "IN"
+      ],
+      "minCartValue": 2000,
+      "applicableCategories": [
+        "electronics",
+        "fashion"
+      ],
+      "excludedCategories": [],
+      "minItemsCount": 1
+    }
+  }
+]

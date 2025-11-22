@@ -1,2 +1,130 @@
-# Coupon_Managment_System
-Its a backend project to manage coupon and check the best coupon for user and provide it to user.
+# 1. Project Overview
+
+This project is a backend service for managing discount coupons and returning the best coupon for a user.
+The system evaluates coupons using user details, cart value, item categories, usage limits, and date validity.
+The project is built using Express.js and JSON file storage.
+Endpoints include: `/create-coupon` for adding new coupons and `/return-coupon` for selecting the best coupon.
+
+
+# 2. Tech Stack
+
+Language: JavaScript (Node.js)
+Framework: Express.js
+Storage: JSON file
+Libraries: express, fs, path
+
+
+
+# 3. Data Structures
+
+User Structure (request format)
+
+```
+{
+  "user": {
+    "userId": "u123",
+    "userTier": "NEW",
+    "country": "IN",
+    "lifetimeSpend": 1200,
+    "ordersPlaced": 2
+  },
+  "cart": {
+    "items": [
+      { "productId": "p1", "category": "electronics", "unitPrice": 1500, "quantity": 1 },
+      { "productId": "p2", "category": "fashion", "unitPrice": 500, "quantity": 2 }
+    ]
+  }
+}
+```
+
+Cart Structure (always inside userData)
+
+```
+{
+  "items": [
+    {
+      "productId": "p1",
+      "category": "fashion",
+      "unitPrice": 500,
+      "quantity": 1
+    }
+  ]
+}
+```
+
+Modified Coupon Structure (output after processing)
+
+```
+{
+  "code": "WELCOME100",
+  "endDate": "2025-12-31",
+  "discount": 150
+}
+```
+
+Explanation:
+code → coupon code
+endDate → expiry date
+discount → final calculated discount based on user cart (flat or percent)
+
+Sorting rules for best coupon:
+
+1. Higher discount
+2. Earlier expiry date
+3. Alphabetically smaller code
+
+The best coupon from the sorted list is sent in response.
+
+---
+
+# 4. How to Run
+
+Prerequisites:
+Node.js 18+
+
+Setup:
+
+```
+git clone https://github.com/ApurbMi/Coupon_Managment_System.git
+cd Coupon_Managment_System
+npm install
+```
+
+Start server:
+
+```
+npm start
+```
+
+or using nodemon:
+npx nodemon index
+
+```
+---
+
+# 5. How to Run Tests (Optional)
+
+If using Jest:
+
+```
+npm test
+```
+
+---
+
+# 6. AI Usage Note
+
+AI tools (ChatGPT) were used as a helper for the following:
+
+* Generating 10 sample coupons for testing
+* Generating user objects based on those coupons
+* Understanding how sorting works under different conditions
+
+Prompts used:
+
+* "Generate 10 sample coupons for testing as per given Object structure"
+* "Generate user data that matches the coupon eligibility"
+* "Explain how sorting works when multiple conditions are applied"
+
+---
+
