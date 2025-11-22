@@ -124,6 +124,29 @@ route.post('/create-coupon',(req,res)=>{
     
     const newCoupon = req.body;
 
+    const textFromFile = readJsonFile();
+   
+   
+    if(!Array.isArray(textFromFile)){
+      return res.status(404).json({
+            message:"File is empty or have no array of object in it",
+            success:false
+        })
+    }
+   
+
+
+   const duplicate =   textFromFile.find((val)=>{
+             return val.code == newCoupon.code;
+     })
+
+     if(duplicate){
+       return res.status(404).json({
+            message:'Duplicate Coupon Code is not allowed',
+            success:false
+        })
+     }
+
       if(newCoupon.code.length===0  || !(['FLAT','PERCENT'].includes(newCoupon.discountType)) ||
         (newCoupon.eligibility.minLifetimeSpend<0) || (newCoupon.eligibility.minCartValue<0) || (newCoupon.eligibility.minOrdersPlaced<0))
 {
@@ -134,19 +157,12 @@ route.post('/create-coupon',(req,res)=>{
 }
 
 
-    const textFromFile = readJsonFile();
 
-    if(!textFromFile){
-        return res.status(404).json({
-            message:"File is empty",
-            success:false
-        })
-    }
      
     textFromFile.push(newCoupon);
     writeJsonFile(textFromFile);
 
-    res.status(200).json({
+   return res.status(200).json({
         message:"Coupon saved successfully",
         success:true
     })

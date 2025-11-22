@@ -269,7 +269,7 @@
     "maxDiscountAmount": 5,
     "startDate": "2025-01-01",
     "endDate": "2025-12-31",
-    "usageLimitPerUser": 10,
+    "usageLimitPerUser": 0,
     "eligibility": {
       "allowedUserTiers": [
         "NEW",
