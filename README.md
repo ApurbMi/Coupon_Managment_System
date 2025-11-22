@@ -1,25 +1,32 @@
+
+
 # 1. Project Overview
 
 This project is a backend service for managing discount coupons and returning the best coupon for a user.
 The system evaluates coupons using user details, cart value, item categories, usage limits, and date validity.
-The project is built using Express.js and JSON file storage.
-Endpoints include: `/create-coupon` for adding new coupons and `/return-coupon` for selecting the best coupon.
+The project is built using **Express.js** and **JSON file storage**.
 
+**Endpoints include:**
+
+* `/create-coupon` → for adding new coupons
+* `/return-coupon` → for selecting the best coupon
+
+---
 
 # 2. Tech Stack
 
-Language: JavaScript (Node.js)
-Framework: Express.js
-Storage: JSON file
-Libraries: express, fs, path
+* **Language:** JavaScript (Node.js)
+* **Framework:** Express.js
+* **Storage:** JSON file
+* **Libraries:** express, fs, path
 
-
+---
 
 # 3. Data Structures
 
-User Structure (request format)
+### User Structure (request format)
 
-```JSON
+```json
 {
   "user": {
     "userId": "u123",
@@ -37,9 +44,9 @@ User Structure (request format)
 }
 ```
 
-Cart Structure (always inside userData)
+### Cart Structure (always inside userData)
 
-```
+```json
 {
   "items": [
     {
@@ -52,9 +59,9 @@ Cart Structure (always inside userData)
 }
 ```
 
-Modified Coupon Structure (output after processing)
+### Modified Coupon Structure (output after processing)
 
-```
+```json
 {
   "code": "WELCOME100",
   "endDate": "2025-12-31",
@@ -62,51 +69,55 @@ Modified Coupon Structure (output after processing)
 }
 ```
 
-Explanation:
-code → coupon code
-endDate → expiry date
-discount → final calculated discount based on user cart (flat or percent)
+**Explanation:**
 
-Sorting rules for best coupon:
+* `code` → coupon code
+* `endDate` → expiry date
+* `discount` → final calculated discount based on user cart (flat or percent)
+
+**Sorting rules for best coupon:**
 
 1. Higher discount
 2. Earlier expiry date
 3. Alphabetically smaller code
 
-The best coupon from the sorted list is sent in response.
+> The best coupon from the sorted list is sent in response.
 
 ---
 
 # 4. How to Run
 
-Prerequisites:
-Node.js 18+
+**Prerequisites:**
 
-Setup:
+* Node.js 18+
 
-```
+**Setup:**
+
+```bash
 git clone https://github.com/ApurbMi/Coupon_Managment_System.git
 cd Coupon_Managment_System
 npm install
 ```
 
-Start server:
+**Start server:**
 
-```
+```bash
 npm start
 ```
 
-or using nodemon:
-npx nodemon index
+Or using nodemon:
 
+```bash
+npx nodemon index
 ```
+
 ---
 
 # 5. How to Run Tests (Optional)
 
 If using Jest:
 
-```
+```bash
 npm test
 ```
 
@@ -120,7 +131,7 @@ AI tools (ChatGPT) were used as a helper for the following:
 * Generating user objects based on those coupons
 * Understanding how sorting works under different conditions
 
-Prompts used:
+**Prompts used:**
 
 * "Generate 10 sample coupons for testing as per given Object structure"
 * "Generate user data that matches the coupon eligibility"
@@ -129,13 +140,13 @@ Prompts used:
 ---
 
 ## API Testing Guide
- 1. Create a Coupon
 
-POST Request
-URL:https://coupon-managment-system-yuio.onrender.com/create-coupon
-```
+### 1. Create a Coupon
 
-Body Format:
+**POST Request**
+**URL:** `https://coupon-managment-system-yuio.onrender.com/create-coupon`
+
+**Body Format:**
 
 ```json
 {
@@ -166,8 +177,7 @@ Body Format:
 ### 2. Get the Best Coupon
 
 **PUT Request**
-**URL:https://coupon-managment-system-yuio.onrender.com/return-coupon
-`
+**URL:** `https://coupon-managment-system-yuio.onrender.com/return-coupon`
 
 **Body Format:**
 
@@ -187,6 +197,7 @@ Body Format:
     ]
   }
 }
-
 ```
+
+---
 
