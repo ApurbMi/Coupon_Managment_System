@@ -1,15 +1,18 @@
 
+---
 
 # 1. Project Overview
 
 This project is a backend service for managing discount coupons and returning the best coupon for a user.
 The system evaluates coupons using user details, cart value, item categories, usage limits, and date validity.
-The project is built using **Express.js** and **JSON file storage**.
 
-**Endpoints include:**
+Key features:
 
-* `/create-coupon` → for adding new coupons
-* `/return-coupon` → for selecting the best coupon
+* **Add new coupons** (`/create-coupon`)
+* **Select the best coupon** for a user (`/return-coupon`)
+* **Validation** for duplicate codes, eligibility, and input correctness
+* **JSON file-based storage** for simplicity
+* **Automated tests using Jest** to ensure API endpoints work correctly
 
 ---
 
@@ -18,13 +21,13 @@ The project is built using **Express.js** and **JSON file storage**.
 * **Language:** JavaScript (Node.js)
 * **Framework:** Express.js
 * **Storage:** JSON file
-* **Libraries:** express, fs, path
+* **Libraries:** express, fs, path, supertest, jest
 
 ---
 
 # 3. Data Structures
 
-### User Structure (request format)
+**User Structure (request format)**
 
 ```json
 {
@@ -44,7 +47,7 @@ The project is built using **Express.js** and **JSON file storage**.
 }
 ```
 
-### Cart Structure (always inside userData)
+**Cart Structure (always inside userData)**
 
 ```json
 {
@@ -59,7 +62,7 @@ The project is built using **Express.js** and **JSON file storage**.
 }
 ```
 
-### Modified Coupon Structure (output after processing)
+**Modified Coupon Structure (output after processing)**
 
 ```json
 {
@@ -69,27 +72,19 @@ The project is built using **Express.js** and **JSON file storage**.
 }
 ```
 
-**Explanation:**
-
-* `code` → coupon code
-* `endDate` → expiry date
-* `discount` → final calculated discount based on user cart (flat or percent)
-
 **Sorting rules for best coupon:**
 
 1. Higher discount
 2. Earlier expiry date
 3. Alphabetically smaller code
 
-> The best coupon from the sorted list is sent in response.
+The best coupon from the sorted list is sent in response.
 
 ---
 
 # 4. How to Run
 
-**Prerequisites:**
-
-* Node.js 18+
+**Prerequisites:** Node.js 18+
 
 **Setup:**
 
@@ -102,24 +97,29 @@ npm install
 **Start server:**
 
 ```bash
-npm start
+node server.js
 ```
 
-Or using nodemon:
+or using nodemon:
 
 ```bash
-npx nodemon index
+npx nodemon server.js
 ```
 
 ---
 
-# 5. How to Run Tests (Optional)
-
-If using Jest:
+# 5. How to Run Tests (Jest)
 
 ```bash
 npm test
 ```
+
+* Tests cover:
+
+  * Creating a coupon successfully
+  * Handling duplicate coupon codes
+  * Invalid input scenarios
+* Supertest is used to simulate API requests
 
 ---
 
@@ -127,11 +127,11 @@ npm test
 
 AI tools (ChatGPT) were used as a helper for the following:
 
-* Generating 10 sample coupons for testing
+* Generating sample coupons for testing
 * Generating user objects based on those coupons
 * Understanding how sorting works under different conditions
 
-**Prompts used:**
+Prompts used:
 
 * "Generate 10 sample coupons for testing as per given Object structure"
 * "Generate user data that matches the coupon eligibility"
@@ -139,12 +139,12 @@ AI tools (ChatGPT) were used as a helper for the following:
 
 ---
 
-## API Testing Guide
+## 7. API Testing Guide
 
 ### 1. Create a Coupon
 
 **POST Request**
-**URL:** `https://coupon-managment-system-yuio.onrender.com/create-coupon`
+URL: `https://coupon-managment-system-yuio.onrender.com/create-coupon`
 
 **Body Format:**
 
@@ -177,7 +177,7 @@ AI tools (ChatGPT) were used as a helper for the following:
 ### 2. Get the Best Coupon
 
 **PUT Request**
-**URL:** `https://coupon-managment-system-yuio.onrender.com/return-coupon`
+URL: `https://coupon-managment-system-yuio.onrender.com/return-coupon`
 
 **Body Format:**
 
