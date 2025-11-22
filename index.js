@@ -9,7 +9,7 @@ let addres = path.join(__dirname,'./coupon.json');
 app.use(express.json());
 app.use('/',couponRoute);
 
-app.listen(5000,()=>{
+app.listen(PORT,()=>{
     console.log('Server is online....');
 })
 module.exports = app;
