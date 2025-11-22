@@ -1,7 +1,9 @@
 
 ---
 
-# 1. Project Overview
+# Coupon Management System
+
+## 1. Project Overview
 
 This project is a backend service for managing discount coupons and returning the best coupon for a user.
 The system evaluates coupons using user details, cart value, item categories, usage limits, and date validity.
@@ -10,13 +12,14 @@ Key features:
 
 * **Add new coupons** (`/create-coupon`)
 * **Select the best coupon** for a user (`/return-coupon`)
+* **View all coupons** (`/get-all-coupon`)
 * **Validation** for duplicate codes, eligibility, and input correctness
 * **JSON file-based storage** for simplicity
 * **Automated tests using Jest** to ensure API endpoints work correctly
 
 ---
 
-# 2. Tech Stack
+## 2. Tech Stack
 
 * **Language:** JavaScript (Node.js)
 * **Framework:** Express.js
@@ -25,7 +28,7 @@ Key features:
 
 ---
 
-# 3. Data Structures
+## 3. Data Structures
 
 **User Structure (request format)**
 
@@ -82,7 +85,7 @@ The best coupon from the sorted list is sent in response.
 
 ---
 
-# 4. How to Run
+## 4. How to Run
 
 **Prerequisites:** Node.js 18+
 
@@ -108,7 +111,7 @@ npx nodemon server.js
 
 ---
 
-# 5. How to Run Tests (Jest)
+## 5. How to Run Tests (Jest)
 
 ```bash
 npm test
@@ -119,6 +122,7 @@ npm test
   * Creating a coupon successfully
   * Handling duplicate coupon codes
   * Invalid input scenarios
+  * Getting all coupons via `/get-all-coupon`
 * Supertest is used to simulate API requests
 
 ---
@@ -198,6 +202,38 @@ URL: `https://coupon-managment-system-yuio.onrender.com/return-coupon`
   }
 }
 ```
+
+---
+
+### 3. Get All Coupons
+
+**GET Request**
+URL: `https://coupon-managment-system-yuio.onrender.com/get-all-coupon`
+
+**Response Format:**
+
+```json
+{
+  "Coupon_List": [
+    {
+      "code": "SILVER150",
+      "description": "Flat 150 off for Silver users",
+      "discountType": "FLAT",
+      "discountValue": 150,
+      "maxDiscountAmount": 150,
+      "startDate": "2025-01-01",
+      "endDate": "2025-12-31",
+      "usageLimitPerUser": 5,
+      "eligibility": { ... }
+    },
+    ...
+  ],
+  "success": true
+}
+```
+
+* This allows you to **see all coupons stored on the Render server**
+* Useful for testing and verification
 
 ---
 

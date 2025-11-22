@@ -120,7 +120,7 @@ function ModifiedCouponArray(cart, eligibleCouponsArray){
 route.get('/get-all-coupon',(req,res)=>{
      const textFromFile = readJsonFile();
      if(!Array.isArray(textFromFile)){
-        return res.status(404).status({
+        return res.status(404).json({
             message:"File dont have array of object",
             message:false
         })
