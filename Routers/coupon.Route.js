@@ -165,7 +165,7 @@ route.post('/create-coupon',(req,res)=>{
       if(newCoupon.code.length===0  || !(['FLAT','PERCENT'].includes(newCoupon.discountType)) ||
         (newCoupon.eligibility.minLifetimeSpend<0) || (newCoupon.eligibility.minCartValue<0) || (newCoupon.eligibility.minOrdersPlaced<0))
 {
-    res.status(404).json({
+  return res.status(404).json({
         message:"Fill Data properly",
         status:false
     })
@@ -209,7 +209,6 @@ route.put('/return-coupon',(req,res)=>{
         return eligibleCoupon(val,userData);
     });
 
-    console.log(eligibleCouponsArray);
 
     const modifiedArray = ModifiedCouponArray(userData.cart, eligibleCouponsArray);
     
