@@ -287,33 +287,5 @@
       "excludedCategories": [],
       "minItemsCount": 1
     }
-  },
-  {
-    "code": "",
-    "description": "Flat ₹200 off above 2000",
-    "discountType": "FIXED",
-    "discountValue": 200,
-    "maxDiscountAmount": 200,
-    "startDate": "2025-01-01",
-    "endDate": "2025-12-31",
-    "usageLimitPerUser": 4,
-    "eligibility": {
-      "allowedUserTiers": [
-        "INVALID_TIER"
-      ],
-      "minLifetimeSpend": -100,
-      "minOrdersPlaced": 2,
-      "firstOrderOnly": false,
-      "allowedCountries": [
-        "IN"
-      ],
-      "minCartValue": 2000,
-      "applicableCategories": [
-        "electronics",
-        "fashion"
-      ],
-      "excludedCategories": [],
-      "minItemsCount": 1
-    }
   }
 ]

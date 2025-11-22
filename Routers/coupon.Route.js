@@ -117,7 +117,21 @@ function ModifiedCouponArray(cart, eligibleCouponsArray){
 
     return modifiedArray;
 }
+route.get('/get-all-coupon',(req,res)=>{
+     const textFromFile = readJsonFile();
+     if(!Array.isArray(textFromFile)){
+        return res.status(404).status({
+            message:"File dont have array of object",
+            message:false
+        })
+     }
 
+     res.status(200).json({
+        Coupon_List:textFromFile,
+        success:true
+     })
+
+})
 
 
 route.post('/create-coupon',(req,res)=>{
